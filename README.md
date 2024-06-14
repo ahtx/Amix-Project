@@ -15,7 +15,6 @@ This project aims to recreate a classic IRIX desktop environment using HTML, CSS
 
 ## Project Structure
 
-```plaintext
 .
 ├── irix_desktop.html        # Main HTML file
 ├── styles.css               # CSS styles
