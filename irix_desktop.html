@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IRIX Desktop Recreation</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop icons and other elements go here -->
+        <div class="desktop-icon" style="left: 20px; top: 20px;">
+            <img src="https://i.postimg.cc/9rs20hBc/image-44.png" alt="File Manager">
+            <span>File Manager</span>
+        </div>
+        <div class="desktop-icon" style="left: 90px; top: 20px;">
+            <img src="https://i.postimg.cc/QFBMYmfd/image-81.png" alt="Terminal">
+            <span>Terminal</span>
+        </div>
+        <div class="desktop-icon" style="left: 160px; top: 20px;">
+            <img src="https://i.postimg.cc/wtHSRTRY/image-55.png" alt="Text Editor">
+            <span>Text Editor</span>
+        </div>
+        <div class="desktop-icon" style="left: 230px; top: 20px;">
+            <img src="https://i.postimg.cc/PNxnMx3t/image-50.png" alt="Web Browser">
+            <span>Web Browser</span>
+        </div>
+        <div class="desktop-icon" style="left: 300px; top: 20px;">
+            <img src="https://i.postimg.cc/N0QbC79g/image-67.png" alt="Mail">
+            <span>Mail</span>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <div class="toolchest">Toolchest</div>
+    </div>
+
+    <div class="menu">
+        <div class="menu-item">
+            <img src="https://i.postimg.cc/TKZ3zbsq/image-82.png" alt="Menu Item 1">
+            <span>System</span>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.postimg.cc/BL3Q604j/image-84.png" alt="Menu Item 2">
+            <span>Find</span>
+        </div>
+        <div class="menu-item">
+            <img src="https://i.postimg.cc/1fdmF6yh/image-90.png" alt="Menu Item 3">
+            <span>Desktop</span>
+        </div>
+    </div>
+
+    <div class="context-menu">
+        <div class="context-menu-item arrange-icons">Arrange Icons</div>
+        <div class="context-menu-item set-background">Set Background Image</div>
+        <div class="context-menu-item" onclick="openXeyes()">Open Xeyes</div>
+        <div class="context-menu-item" onclick="openXclock()">Open Xclock</div>
+        <div class="context-menu-item" onclick="createFolder()">Create New Folder</div>
+        <div class="context-menu-item" onclick="openNotepad()">Create New Text File</div>
+    </div>
+
+    <div class="bg-chooser">
+        <div class="title-bar">
+            <span>Choose Background</span>
+            <span class="close-button">X</span>
+        </div>
+        <div class="window-content">
+            <div class="list"></div>
+            <div class="preview"></div>
+        </div>
+        <div class="buttons">
+            <button class="apply">Apply</button>
+            <button class="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="core.js"></script>
+    <script src="notepad.js"></script>
+    <script src="xeyes.js"></script>
+    <script src="xclock.js"></script>
+    <script src="appManagement.js"></script>
+    <script src="desktopManagement.js"></script>
+    <script src="setup.js"></script>
+</body>
+</html>
