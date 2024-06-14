@@ -2,6 +2,9 @@
 
 This project aims to recreate a classic IRIX desktop environment using HTML, CSS, and JavaScript. The interface includes a variety of applications and desktop features reminiscent of the IRIX operating system.
 
+![Screen Snapshot](./images/irixd.jpg)
+
+
 ## Features
 
 - **Desktop Icons**: Launch applications by double-clicking icons on the desktop.
