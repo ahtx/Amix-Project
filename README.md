@@ -15,6 +15,7 @@ This project aims to recreate a classic IRIX desktop environment using HTML, CSS
 
 ## Project Structure
 
+```
 .
 ├── irix_desktop.html        # Main HTML file
 ├── styles.css               # CSS styles
@@ -27,7 +28,7 @@ This project aims to recreate a classic IRIX desktop environment using HTML, CSS
 ├── xeyes.js                 # Xeyes application script
 ├── xclock.js                # Xclock application script
 └── README.md                # This file
-
+```
 
 ## Getting Started
 
@@ -38,8 +39,7 @@ This project aims to recreate a classic IRIX desktop environment using HTML, CSS
 ### Running the Project
 
 1. Clone the repository:
-   
-   
+
 2. Open `irix_desktop.html` in your web browser to start the IRIX desktop environment.
 
 ### Customization
