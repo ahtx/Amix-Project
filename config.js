@@ -1,9 +1,6 @@
-// config.js - Centralized configuration for managing URLs and other constants
-
 const ICONS = {
     folder: 'https://i.postimg.cc/9rs20hBc/image-44.png',
-    file: 'https://i.postimg.cc/wtHSRTRY/image-55.png',
-    textEditor: 'https://i.postimg.cc/QFBMYmfd/image-81.png'
+    textFile: 'https://i.postimg.cc/wtHSRTRY/image-55.png'
 };
 
 const bgImages = [

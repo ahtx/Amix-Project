@@ -33,28 +33,28 @@
         <div class="toolchest">Toolchest</div>
     </div>
 
+    <div class="context-menu">
+        <div class="context-menu-item set-background" data-action="setBackground">Set Background Image</div>
+        <div class="context-menu-item" data-action="arrangeIcons">Arrange Icons</div>
+        <div class="context-menu-item" data-action="openXeyes">Open Xeyes</div>
+        <div class="context-menu-item" data-action="openXclock">Open Xclock</div>
+        <div class="context-menu-item" data-action="createFolder">Create New Folder</div>
+        <div class="context-menu-item" data-action="openNotepad">Create New Text File</div>
+    </div>
+    
     <div class="menu">
-        <div class="menu-item">
-            <img src="https://i.postimg.cc/TKZ3zbsq/image-82.png" alt="Menu Item 1">
+        <div class="menu-item" data-action="openAmixSystem">
+            <img src="https://i.postimg.cc/TKZ3zbsq/image-82.png" alt="System">
             <span>System</span>
         </div>
-        <div class="menu-item">
-            <img src="https://i.postimg.cc/BL3Q604j/image-84.png" alt="Menu Item 2">
+        <div class="menu-item" data-action="find">
+            <img src="https://i.postimg.cc/BL3Q604j/image-84.png" alt="Find">
             <span>Find</span>
         </div>
-        <div class="menu-item">
-            <img src="https://i.postimg.cc/1fdmF6yh/image-90.png" alt="Menu Item 3">
+        <div class="menu-item" data-action="desktop">
+            <img src="https://i.postimg.cc/1fdmF6yh/image-90.png" alt="Desktop">
             <span>Desktop</span>
         </div>
-    </div>
-
-    <div class="context-menu">
-        <div class="context-menu-item arrange-icons">Arrange Icons</div>
-        <div class="context-menu-item set-background">Set Background Image</div>
-        <div class="context-menu-item" onclick="openXeyes()">Open Xeyes</div>
-        <div class="context-menu-item" onclick="openXclock()">Open Xclock</div>
-        <div class="context-menu-item" onclick="createFolder()">Create New Folder</div>
-        <div class="context-menu-item" onclick="openNotepad()">Create New Text File</div>
     </div>
 
     <div class="bg-chooser">
@@ -71,13 +71,14 @@
             <button class="cancel">Cancel</button>
         </div>
     </div>
+    
 
     <script src="config.js"></script>
     <script src="core.js"></script>
     <script src="notepad.js"></script>
     <script src="xeyes.js"></script>
     <script src="xclock.js"></script>
-    <script src="appManagement.js"></script>
+    <script src="appmanagement.js"></script>
     <script src="desktopManagement.js"></script>
     <script src="setup.js"></script>
 </body>

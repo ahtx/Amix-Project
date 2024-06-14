@@ -1,19 +1,13 @@
-// xeyes.js - Functions for managing the Xeyes application
-
-let xeyesInstance = null;
-
 function openXeyes() {
-    if (xeyesInstance) return; // Prevent multiple instances
-
-    const content = `<canvas id="xeyesCanvas"></canvas>`;
-    xeyesInstance = createWindow({ title: 'Xeyes', content });
-
-    const canvas = xeyesInstance.querySelector('canvas');
+    const xeyes = createWindow({ title: 'Xeyes', content: '<canvas id="xeyesCanvas"></canvas>' });
+    const canvas = xeyes.querySelector('canvas');
     const ctx = canvas.getContext('2d');
 
     function drawEyes(mouseX, mouseY) {
-        const eyeRadius = canvas.width * 0.15;
-        const irisRadius = canvas.width * 0.075;
+        const eyeRadiusX = canvas.width * 0.15;
+        const eyeRadiusY = canvas.height * 0.3;
+        const irisRadiusX = canvas.width * 0.075;
+        const irisRadiusY = canvas.height * 0.15;
         const eyes = [
             { x: canvas.width / 3, y: canvas.height / 2 },
             { x: (2 * canvas.width) / 3, y: canvas.height / 2 }
@@ -21,34 +15,36 @@ function openXeyes() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         eyes.forEach(eye => {
             ctx.beginPath();
-            ctx.ellipse(eye.x, eye.y, eyeRadius, eyeRadius * 1.5, 0, 0, 2 * Math.PI);
+            ctx.ellipse(eye.x, eye.y, eyeRadiusX, eyeRadiusY, 0, 0, 2 * Math.PI);
             ctx.stroke();
 
             const angle = Math.atan2(mouseY - eye.y, mouseX - eye.x);
-            const irisX = eye.x + Math.cos(angle) * (eyeRadius - irisRadius);
-            const irisY = eye.y + Math.sin(angle) * (eyeRadius - irisRadius);
+            const irisX = eye.x + Math.cos(angle) * (eyeRadiusX - irisRadiusX);
+            const irisY = eye.y + Math.sin(angle) * (eyeRadiusY - irisRadiusY);
 
             ctx.beginPath();
-            ctx.arc(irisX, irisY, irisRadius, 0, 2 * Math.PI);
+            ctx.ellipse(irisX, irisY, irisRadiusX, irisRadiusY, 0, 0, 2 * Math.PI);
             ctx.fill();
         });
     }
 
     function resizeCanvas() {
-        canvas.width = xeyesInstance.offsetWidth * 0.95;
-        canvas.height = xeyesInstance.offsetHeight * 0.95;
-        drawEyes(canvas.width / 2, canvas.height / 2);
+        canvas.width = xeyes.clientWidth;
+        canvas.height = xeyes.clientHeight;
+        drawEyes(canvas.width / 2, canvas.height / 2);  // Draw eyes in the center of the canvas initially
     }
 
-    canvas.addEventListener('mousemove', e => {
+    // Attach global mousemove event listener
+    document.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
-        drawEyes(e.clientX - rect.left, e.clientY - rect.top);
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        drawEyes(mouseX, mouseY);
     });
 
-    xeyesInstance.addEventListener('resize', resizeCanvas);
+    // Attach resize event listener to the window
+    xeyes.addEventListener('resize', resizeCanvas);
+
+    // Call resizeCanvas initially to set the initial size
     resizeCanvas();
-
-    xeyesInstance.querySelector('.close-button').addEventListener('click', () => {
-        xeyesInstance = null; // Reset instance on close
-    });
 }

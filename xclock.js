@@ -1,14 +1,6 @@
-// xclock.js - Functions for managing the Xclock application
-
-let xclockInstance = null;
-
 function openXclock() {
-    if (xclockInstance) return; // Prevent multiple instances
-
-    const content = `<div id="xclockDisplay" class="xclock"></div>`;
-    xclockInstance = createWindow({ title: 'Xclock', content });
-
-    const display = xclockInstance.querySelector('#xclockDisplay');
+    const xclock = createWindow({ title: 'Xclock', content: '<div id="xclockDisplay" class="xclock"></div>' });
+    const display = xclock.querySelector('#xclockDisplay');
 
     function updateClock() {
         const now = new Date();
@@ -17,21 +9,22 @@ function openXclock() {
         const seconds = String(now.getSeconds()).padStart(2, '0');
         display.innerText = `${hours}:${minutes}:${seconds}`;
     }
-
-    function resizeDisplay() {
-        display.style.fontSize = `${xclockInstance.offsetWidth * 0.15}px`;
-        display.style.display = 'flex';
-        display.style.alignItems = 'center';
-        display.style.justifyContent = 'center';
-        display.style.height = '100%';
-    }
-
     setInterval(updateClock, 1000);
     updateClock();
-    xclockInstance.addEventListener('resize', resizeDisplay);
-    resizeDisplay();
 
-    xclockInstance.querySelector('.close-button').addEventListener('click', () => {
-        xclockInstance = null; // Reset instance on close
-    });
+    function resizeDisplay() {
+        display.style.fontSize = `${xclock.clientWidth * 0.15}px`;
+        display.style.lineHeight = `${xclock.clientHeight}px`;
+        display.style.display = 'flex';
+        display.style.height = '100%';
+        display.style.width = '100%';
+    }
+
+    // Attach resize event listener to the window
+    xclock.addEventListener('resize', resizeDisplay);
+
+    // Call resizeDisplay initially to set the initial size
+    resizeDisplay();
 }
+
+

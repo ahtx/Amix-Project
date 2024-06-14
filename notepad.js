@@ -15,7 +15,6 @@ function openNotepad() {
     const initialWidth = notepad.offsetWidth;
     const initialHeight = notepad.offsetHeight;
 
-    // Function to resize the textarea to fit the notepad window
     function resizeTextarea() {
         const width = notepad.offsetWidth - 20; // Subtract padding/margins
         const height = notepad.offsetHeight - 80; // Subtract header, footer, and padding/margins
